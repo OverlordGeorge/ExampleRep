@@ -1,0 +1,62 @@
+let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+function makeRequest (url, callback){
+let req= new XMLHttpRequest();
+req.onreadystatechange = function(){
+if (req.status == 200){
+callback (req.responseText);
+
+}
+};
+req.open("GET", url, false);
+req.send(null);
+}
+
+function dealWithData(data) {
+return data;
+}
+
+class DataClass {
+constructor (userId, id, title, body){
+  this.userId= userId;
+  this.id= id;
+  this.title=title;
+  this.body= body;
+
+  function biggestBody(data){
+    let largestBodyLength=0;
+    let largestBody;
+    for (var i=0; i<=data.length; i++){
+      if (this.body.length> largestBodyLength){
+        largestBodyLength= this.body[i].length;
+        largestBody= this.body[i];
+  }
+  }
+  return largestBody;
+  }
+
+  function sortByBiggestBody(data){
+    for (var i=0; i<=data.length; i++){
+      for (var j=0; j<=data.length-1; j++){
+        if (this.body[i+1]> this.body[i]){
+          let temp= this.body[i];
+          this.body[i]= this.body[i+1];
+          this.body[i+1]= temp;
+  }
+  }
+  }
+  return data;
+  }
+
+
+}
+}
+
+
+
+let ourUrl = "https://jsonplaceholder.typicode.com/posts";
+
+let dataInfo= makeRequest (ourUrl, dealWithData);
+
+let class1= new DataClass (dataInfo);
+console.log(DataClass.biggestBody(class1));
