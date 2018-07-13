@@ -1,0 +1,28 @@
+.ourTableClass{
+    border-collapse: collapse;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+.ourTableClass td{
+    border: 1px solid black;
+}
+
+.ourTableClass th{
+    border: 1px solid black;
+}
+
+.ourTableClass tr td{
+    color: blue;
+}
+
+.ourTableClass2{
+    position: absolute;
+    top: 40%;
+    left: 5%;
+}
+
+#ourIdTable{
+    color: red;
+}
