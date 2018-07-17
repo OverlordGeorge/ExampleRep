@@ -1,0 +1,45 @@
+.navigation{
+
+margin: 5%;
+width: 90%;
+
+}
+
+.navigation button {
+border-collapse: collapse;
+border: 1px solid cyan;
+color: cyan;
+padding: 2%;
+width: 33%;
+}
+.parag1{
+background-color: orange;
+color: white;
+padding: 2%;
+margin: 5%;
+
+
+}
+
+.parg{
+  width: 90%;
+  margin: 5%;
+  border: 1px solid green;
+}
+
+.parag2{
+background-color: white;
+color: black;
+padding: 2%;
+
+width: 45%;
+}
+
+.parag3{
+background-color: red;
+color: green;
+border: 1px solid orange;
+padding: 2%;
+
+width: 45%;
+}

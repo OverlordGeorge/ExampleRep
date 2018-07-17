@@ -1,0 +1,61 @@
+.navigation{
+
+margin: 5%;
+
+}
+
+.navigation button {
+border-collapse: collapse;
+border: 1px solid cyan;
+color: cyan;
+padding: 2%;
+width: 33%;
+color: cyan;
+text-decoration: none;
+}
+
+.images {
+
+
+
+color: red;
+margin: 5%;
+width: 90%;
+}
+
+.images img{
+
+border: 1px solid red;
+width: 45%;
+height: 200px;
+}
+
+.buttons{
+
+  width: 90%;
+  height: auto;
+  margin: 5%;
+
+}
+
+
+.add{
+border: 1px solid green;
+margin: 10%;
+width: auto;
+height: 2%;
+color: green;
+text-decoration: none;
+padding: 2%;
+
+}
+
+.remove{
+border: 1px solid red;
+margin: 5%;
+width: auto;
+height: 2%;
+color: red;
+text-decoration: none;
+padding: 2%;
+}
