@@ -23,18 +23,18 @@ width: 90%;
 .images img{
 
 border: 1px solid red;
-width: 45%;
+width: 49%;
 height: 200px;
+padding: 0;
+margin: 0;
 }
 
 .buttons{
 
-
   width: 90%;
   height: auto;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: -10%;
+  margin: 5%;
+
 }
 
 
@@ -57,19 +57,4 @@ height: 2%;
 color: red;
 text-decoration: none;
 padding: 2%;
-}
-
-.images:last-child{
-  text-align: right;
-}
-
-.images:first-child{
-  text-align: left;
-}
-
-#leftPic{
-}
-
-#rightPic{
-
 }

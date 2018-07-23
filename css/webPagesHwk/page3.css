@@ -12,6 +12,7 @@ color: cyan;
 padding: 2%;
 width: 33%;
 }
+
 .parag1{
 background-color: orange;
 color: white;
@@ -25,27 +26,21 @@ margin: 5%;
   width: 90%;
   margin: 5%;
   border: 1px solid green;
-  padding: 0;
-
 }
 
-
 .parag2{
-  display: inline-block;
-  background-color: white;
-  color: black;
-  width: 49.5%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
+background-color: white;
+color: black;
+padding: 2%;
+
+width: 45%;
 }
 
 .parag3{
-  display: inline-block;
-  background-color: red;
-  color: green;
-  border: 1px solid orange;
-  width: 49.5%;
-  height: 100%;
-  margin: -10%;
+background-color: red;
+color: green;
+border: 1px solid orange;
+padding: 2%;
+
+width: 45%;
 }

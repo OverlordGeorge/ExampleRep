@@ -1,0 +1,55 @@
+.images{
+  margin:5%;
+  margin-bottom: 0%;
+}
+
+.img1{
+  width: 35%;
+  height: 150px;
+  border: 10px solid;
+  border-color: grey;
+  margin: 5%;
+}
+
+.img2{
+  width: 35%;
+  height: 150px;
+  border: 10px solid;
+  border-color: grey;
+  margin: 5%;
+}
+
+
+.buttons{
+  margin-right: 5%;
+  margin-left: 5%;
+
+}
+
+
+
+.unchoose{
+  background-color: grey;
+  color: white;
+
+
+}
+
+.choose{
+  background-color: red;
+  color: white;
+
+}
+
+button{
+  border-radius: 8px;
+margin:7%;
+padding:2%;
+}
+
+.chooseAll{
+  width: 50%;
+  background-color: blue;
+  padding:2%;
+  color: white;
+}
