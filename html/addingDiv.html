@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="../css/addingDiv.css">
+</head>
+
+<body>
+  <div class="addBar">
+    <input type="text" placeholder="name to add"/>
+   <button class="add" onclick="add()">add</button>
+  </div>
+
+  <div class="list">
+    <div class="row" id="row1">
+      <h3 class="name"></h3>
+      <div class="buttons" align="right">
+      <button class="change" onclick="change()">change</button>
+      <button class="delete" onclick="delete()">delete</button>
+      <button class="choose" onclick="choose()">choose</button>
+    </div>
+
+    </div>
+  </div>
+  <div class="bottomBtns"  align="center">
+    <button class="chooseAll" onclick="chooseAll()">choose all</button>
+    <button class="deleteChosen" onclick="deleteChosen()">delete chosen</button>
+</div>
+
+  <script src="../javascript/addingDiv.js">
+  </script>
+</body>
+</html>
