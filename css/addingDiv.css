@@ -1,0 +1,78 @@
+button{
+    border-radius: 20px;
+}
+
+
+.addBar{
+  border: 2px solid blue;
+  width: 90%;
+  margin: 5%;
+  height: 20%;
+  padding:0%:
+  
+}
+input{
+  width: 45%;
+  margin: 0%:
+  height: 20%;
+  padding: 2%
+}
+.add{
+  color: white;
+  background-color: blue;
+  width: 49%;
+  margin: 0%;
+  border-radius: 0px;
+  padding: 2%;
+  height: 20%;
+}
+
+
+.list{
+  width: 90%;
+  border: 2px solid gray;
+  margin: 5%;
+
+}
+
+.buttons{
+  padding: 2%;
+}
+
+.change{
+  color: white;
+  background-color: orange;
+  padding:2%;
+
+}
+
+.delete{
+  color: white;
+  background-color: red;
+  padding:2%;
+}
+
+.choose{
+  color: white;
+  background-color: green;
+  padding:2%;
+}
+
+.bottomBtns{
+  margin: 5%;
+
+}
+
+.chooseAll{
+  background-color: blue;
+  color: white;
+  padding:2%;
+  width: 45%;
+}
+
+.deleteChosen{
+  background-color: blue;
+  color: white;
+  padding:2%;
+  width: 45%;
+}
