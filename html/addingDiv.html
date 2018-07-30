@@ -9,23 +9,23 @@
 
 <body>
   <div class="addBar">
-    <input type="text" placeholder="name to add"/>
+    <input id="input" type="text" placeholder="name to add"/>
    <button class="add" onclick="add()">add</button>
   </div>
 
-  <div class="list">
+  <div class="list" id="list">
     <div class="row" id="row1">
-      <h3 class="name"></h3>
+      <h3 class="name" id="name">Jason</h3>
       <div class="buttons" align="right">
-      <button class="change" onclick="change()">change</button>
-      <button class="delete" onclick="delete()">delete</button>
-      <button class="choose" onclick="choose()">choose</button>
+    <button class="change" id="change" onclick="changeMe('name')">change</button>
+     <button class="delete" id="delete" onclick="deleteMe('row1')">delete</button>
+   <button class="choose" id="choose" onclick="chooseMe('row1')">choose</button>
     </div>
 
     </div>
   </div>
   <div class="bottomBtns"  align="center">
-    <button class="chooseAll" onclick="chooseAll()">choose all</button>
+    <button class="chooseAll" onclick="chooseAll('list')">choose all</button>
     <button class="deleteChosen" onclick="deleteChosen()">delete chosen</button>
 </div>
 
