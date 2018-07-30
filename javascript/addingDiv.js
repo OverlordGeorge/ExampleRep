@@ -9,7 +9,8 @@ function deleteMe(id) {
 
 function add() {
 
-    let counter++;
+    //let counter++;  no need to use let, cause weve alredy defined counter
+    counter++;
     let id = "row"+counter;
     let body = document.body;
     let div = document.createElement('div');
