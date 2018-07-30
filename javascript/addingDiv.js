@@ -1,5 +1,5 @@
 
-let counter = 1;
+let counter;
 
 function changeMe(id) {
     let name = document.getElementById(id);
@@ -17,12 +17,12 @@ function deleteMe(id) {
 
 function chooseMe(id) {
     let div = document.getElementById(id);
-    div.style.backgroundColor= brown;
+    div.style.backgroundColor= "brown";
 }
 
 function chooseAll(id) {
     let div = document.getElementById(id);
-    div.style.backgroundColor= brown;
+    div.style.backgroundColor="brown";
 }
 
 
@@ -33,18 +33,22 @@ function add() {
     let body = document.body;
     let div = document.createElement('div');
     div.className = "row";
+    div.style.border= "solid";
     div.id = id;
     div.textContent = document.getElementById('input').value;
 
-    let button1 = document.getElementById('change');
+    let button1 = document.createElement('button');
+    button1.textContent = "change";
     button1.onclick = function(){
         let button = this;
         let div = button.parentElement;
         id = div.id;
+
         changeMe(id);
     };
 
-    let button2 = document.getElementById('delete');
+    let button2 = document.createElement('button');
+    button2.textContent = "delete";
     button2.onclick = function(){
         let button = this;
         let div = button.parentElement;
@@ -52,7 +56,8 @@ function add() {
         deleteMe(id);
     };
 
-    let button3 = document.getElementById('choose');
+    let button3 = document.createElement('button');
+    button3.textContent = "choose";
     button3.onclick = function(){
         let button = this;
         let div = button.parentElement;
@@ -63,5 +68,5 @@ function add() {
       div.appendChild(button2);
       div.appendChild(button3);
       let before= document.getElementById('bottomBtns');
-      body.insertBefore(div, before);
+       body.insertBefore(div, before);
   }
