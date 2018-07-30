@@ -62,5 +62,6 @@ function add() {
       div.appendChild(button1);
       div.appendChild(button2);
       div.appendChild(button3);
-      body.appendChild(div);
+      let before= document.getElementById('bottomBtns');
+      body.insertBefore(div, before);
   }
