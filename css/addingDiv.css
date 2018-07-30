@@ -9,7 +9,7 @@ button{
   margin: 5%;
   height: 20%;
   padding:0%:
-  
+
 }
 input{
   width: 45%;
@@ -32,6 +32,11 @@ input{
   width: 90%;
   border: 2px solid gray;
   margin: 5%;
+
+}
+.row{
+  border: 2px solid gray;
+
 
 }
 
