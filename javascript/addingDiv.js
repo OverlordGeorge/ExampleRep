@@ -3,11 +3,13 @@ let counter;
 
 function changeMe(id) {
     let row = document.getElementById(id);
-
     let input = document.createElement('input');
-    row.replaceWith(input);
-    let newName= input.value;
+    row.replaceWith(input)
+    /*addEventListener("keypress", function onEvent(event) {
+      if (event.key === "Enter") {
     row.replaceWith(newName);
+  }
+}*/
 
 }
 
