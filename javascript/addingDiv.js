@@ -2,10 +2,12 @@
 let counter;
 
 function changeMe(id) {
-    let name = document.getElementById(id);
-    let input = document.getElementById(input);
-    name.replaceWith(input);
-    name= input.value;
+    let row = document.getElementById(id);
+
+    let input = document.createElement('input');
+    row.replaceWith(input);
+    let newName= input.value;
+    row.replaceWith(newName);
 
 }
 
