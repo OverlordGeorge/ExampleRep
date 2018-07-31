@@ -69,16 +69,20 @@ function chooseMe(id) {
     let divs = document.getElementsByClassName('row');
     divs.style.backgroundColor="gray";
 }
-
-function deleteChosen() {
-  let divs=document.getElementsByClassName('row');
-if (divs.style.backgroundColor="gray"){
-
-      let body = document.body;
-      body.removeChild(divs);
-}
 */
 
+
+function deleteChosen() {
+    let divs = document.getElementsByClassName('row');    // returns an array of html elements
+    //so we need to use loop to go via it
+    for (let i=0;i<divs.length;i++) {
+        if (divs[i].style.backgroundColor === "gray") {   //use === instead = or == in ifs
+            let body = document.body;
+            body.removeChild(divs[i]);
+        }
+    }
+
+}
 
 
 function add() {
