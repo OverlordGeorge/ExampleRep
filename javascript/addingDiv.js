@@ -65,18 +65,21 @@ function chooseMe(id) {
     div.style.backgroundColor= "gray";
 }
 
-/*function chooseAll() {
+function chooseAll() {
     let divs = document.getElementsByClassName('row');
-    divs.style.backgroundColor="gray";
+    for (let i=0; i<divs.length; i++){
+        divs[i].style.backgroundColor="gray";
+    }
+
 }
-*/
+
 
 
 function deleteChosen() {
-    let divs = document.getElementsByClassName('row');    // returns an array of html elements
-    //so we need to use loop to go via it
+    let divs = document.getElementsByClassName('row');
+
     for (let i=0;i<divs.length;i++) {
-        if (divs[i].style.backgroundColor === "gray") {   //use === instead = or == in ifs
+        if (divs[i].style.backgroundColor === "gray") {
             let body = document.body;
             body.removeChild(divs[i]);
         }
@@ -95,6 +98,8 @@ function add() {
     div.style.border= "solid";
     div.id = id;
     div.textContent = document.getElementById('input').value;
+
+    document.getElementById('input').value= null;
 
     let button1 = document.createElement('button');
     button1.textContent = "change";
@@ -136,4 +141,5 @@ function add() {
       div.appendChild(button3);
       let before = document.getElementById('bottomBtns');
       body.insertBefore(div, before);
+        
   }

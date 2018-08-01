@@ -11,6 +11,10 @@ button{
   padding:0%:
 
 }
+
+.list{
+  border-collapse: "collapse";
+}
 input{
   width: 45%;
   margin: 0%:
