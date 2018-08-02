@@ -82,6 +82,7 @@ function deleteChosen() {
         if (divs[i].style.backgroundColor === "gray") {
             let body = document.body;
             body.removeChild(divs[i]);
+            i--;
         }
     }
 
