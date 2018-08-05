@@ -63,7 +63,20 @@ function deleteMe(id) {
 function chooseMe(id) {
     let div = document.getElementById(id);
     div.style.backgroundColor= "gray";
+
+  /*  let button = document.getElementsByClassName(button3);
+    if (button.value=="choose") {
+    button.value = "unchoose";
+    else button.value = "choose";*/
 }
+}
+
+function unChoose(id){
+  let div= document.getElementById(id);
+div.style.backgroundColor="white";
+//button.textContent= "choose":
+}
+
 
 function chooseAll() {
     let divs = document.getElementsByClassName('row');
@@ -127,6 +140,7 @@ function add() {
     };
 
     let button3 = document.createElement('button');
+  //button3.className= "button3";
     button3.textContent = "choose";
     button3.style.backgroundColor= "green";
     button3.style.color= "white";
@@ -142,5 +156,5 @@ function add() {
       div.appendChild(button3);
       let before = document.getElementById('bottomBtns');
       body.insertBefore(div, before);
-        
+
   }
