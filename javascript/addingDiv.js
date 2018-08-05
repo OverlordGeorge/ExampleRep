@@ -63,20 +63,22 @@ function deleteMe(id) {
 function chooseMe(id) {
     let div = document.getElementById(id);
     div.style.backgroundColor= "gray";
-
-  /*  let button = document.getElementsByClassName(button3);
-    if (button.value=="choose") {
     button.value = "unchoose";
     button.className="unChoose";
-    else button.value = "choose";*/
-}
+    button.onclick=function(){
+    unChoose(id);
+  }
 }
 
-/*function unChoose(id){
+
+function unChoose(id){
   let div= document.getElementsByClassName("unChoose");
 div.style.backgroundColor="white";
 button.textContent= "choose":
-}*/
+button.onclick=function(){
+  chooseMe(id);
+}
+}
 
 
 function chooseAll() {
@@ -141,8 +143,7 @@ function add() {
     };
 
     let button3 = document.createElement('button');
-  //button3.className= "button3";
-    button3.textContent = "choose";
+  button3.textContent = "choose";
     button3.style.backgroundColor= "green";
     button3.style.color= "white";
       button3.style.margin="2%";
