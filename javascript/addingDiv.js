@@ -67,15 +67,16 @@ function chooseMe(id) {
   /*  let button = document.getElementsByClassName(button3);
     if (button.value=="choose") {
     button.value = "unchoose";
+    button.className="unChoose";
     else button.value = "choose";*/
 }
 }
 
-function unChoose(id){
-  let div= document.getElementById(id);
+/*function unChoose(id){
+  let div= document.getElementsByClassName("unChoose");
 div.style.backgroundColor="white";
-//button.textContent= "choose":
-}
+button.textContent= "choose":
+}*/
 
 
 function chooseAll() {
