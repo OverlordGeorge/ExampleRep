@@ -2,3 +2,10 @@
   width: 50%;
   border: 1px solid black;
 }
+
+.box{
+  width: 20%;
+  margin: 5px;
+  padding: 0;
+  display: inline-block;
+}

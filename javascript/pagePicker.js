@@ -8,8 +8,8 @@ request.send();
 
 request.onreadystatechange = function () {
         if (request.responseText !== ""){
-          let data = request.responseText;
-      dealWithData(JSON.parse(data));
+            let data = request.responseText;
+            dealWithData(JSON.parse(data));
         }
 
 };
@@ -29,18 +29,23 @@ let counter=0;
         button.textContent= "like";
         button.border= "red";
         button.color= "red";
-        boxes.appendChild(image);
-        boxes.appendChild(parag);
-        boxes.appendChild(button);
+        div.className="box";
+        div.appendChild(image);
+        div.appendChild(parag);
 
-
-        button.onclick = function(){
-            let button = this;
+        button.onclick = function(ev){
+            let button = ev.target;
             let div = button.parentElement;
-            let className = div.class;
+            let className = div.className;
             likeMe(className);
 
-    }
+        }
+
+        div.appendChild(button);
+
+        boxes.appendChild(div);
+
+
 }
 }
 
