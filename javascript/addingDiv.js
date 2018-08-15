@@ -74,7 +74,7 @@ function chooseMe(id) {
 function unChoose(id){
   let div= document.getElementsByClassName("unChoose");
 div.style.backgroundColor="white";
-button.textContent= "choose":
+button.textContent= "choose";
 button.onclick=function(){
   chooseMe(id);
 }
