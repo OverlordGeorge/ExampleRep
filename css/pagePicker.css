@@ -2,26 +2,3 @@
   width: 50%;
   border: 1px solid black;
 }
-
-.box{
-  height: 15%;
-  width: 15%;
-  margin: 5%;
-}
-
-.topBox{
-  height: 10%;
-  width: 15%;
-  border: 1px solid black;
-}
-
-.bottomBox{
-  height: 5%;
-  width: 15%;
-  border: 1px solid black;
-}
-
-button{
-  border: 1px solid red;
-
-}

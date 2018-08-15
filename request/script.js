@@ -8,7 +8,7 @@ request.send();
 
 request.onreadystatechange = function () {
         let data = request.responseText;
-        dealWithDat(JSON.parse(data));
+        dealWithData(JSON.parse(data));
 };
 
 function dealWithDat(data) {
