@@ -1,7 +1,9 @@
 
+let pageNumber= 1;
+
 
 let request = new XMLHttpRequest();
-let url = "https://jsonplaceholder.typicode.com/photos?_page=2";
+let url = "https://jsonplaceholder.typicode.com/photos?_page="+ pageNumber;
 
 request.open('GET', url, true);
 request.send();
@@ -10,6 +12,7 @@ request.onreadystatechange = function () {
         if (request.responseText !== ""){
             let data = request.responseText;
             dealWithData(JSON.parse(data));
+
         }
 
 };
@@ -26,18 +29,21 @@ let counter=0;
         let parag= document.createElement("p");
         parag.textContent= data[i].title;
         let button= document.createElement("button");
+        button.id= "likeButton";
         button.textContent= "like";
-        button.border= "red";
-        button.color= "red";
+
         div.className="box";
         div.appendChild(image);
         div.appendChild(parag);
 
         button.onclick = function(ev){
-            let button = ev.target;
-            let div = button.parentElement;
-            let className = div.className;
-            likeMe(className);
+            let button =event.target;
+
+            button.id= "dislikeButton";
+            let id= button.id;
+            button.textContent= "dislike";
+
+            likeMe(id);
 
         }
 
@@ -47,28 +53,38 @@ let counter=0;
 
 
 }
+
+let pageNumberDiv= document.createElement("div");
+pageNumberDiv.id= "pageNumberDivId";
+for (let i=0; i<10; i++){
+  let pageNumberBox= document.createElement("button");
+pageNumberBox.id="button"+i;
+pageNumberBox.className= "pageBox";
+pageNumberBox.href= url+ i;
+
+  pageNumberDiv.appendChild(pageNumberBox);
+}
 }
 
-function likeMe(){
-    button.textContent="dislike";
-    button.backgroundColor="red";
 
-    button.onclick = function(){
-      let button = this;
-      let div= button.parentElement;
-      let className= div.class;
-      dislikeMe(className);
+
+function likeMe(id){
+let button= document.getElementById(id);
+button.onclick= function(){
+button.id="likeButton";
+      id= button.id;
+      button.textContent="like";
+      dislikeMe(id);
     }
-}
+  }
 
-function dislikeMe(){
-  button.textContent="like";
-  button.backgroundColor="white";
 
+function dislikeMe(id){
+let button= document.getElementById(id);
   button.onclick = function(){
-    let button = this;
-    let div= button.parentElement;
-    let className= div.class;
-    dislikeMe(className);
+    button.id="dislikeButton";
+    id=button.id;
+    button.textContent="dislike";
+    likeMe(id);
   }
 }
