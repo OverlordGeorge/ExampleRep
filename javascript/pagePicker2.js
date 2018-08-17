@@ -1,19 +1,21 @@
+
+
 function requestPage(n){
   let url= "https://jsonplaceholder.typicode.com/photos?_page=" + n;
   let request= new XMLHttpRequest();
-deleteBoxes();
   request.open('GET', url, true);
   request.send();
 
   request.onreadystatechange = function () {
           if (request.responseText !== ""){
+              deleteBoxes();
               let data = request.responseText;
-
-
-dealWithData(data);
+              console.log(data);
+              dealWithData(JSON.parse(data));
           }
+    }
 
-}}
+}
 
 
 
@@ -22,7 +24,7 @@ function deleteBoxes(){
 
   while (div.firstChild){
       let child = div.firstChild;
-      div.remove(child);
+      div.removeChild(child);
 }
 
 }
