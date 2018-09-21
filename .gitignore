@@ -2,3 +2,19 @@
 \.idea/
 
 \.DS_Store
+
+*.js
+
+nodejs/project1/node_modules/unpipe/
+
+nodejs/project1/node_modules/utils-merge/
+
+nodejs/project1/node_modules/type-is/
+
+nodejs/project1/node_modules/vary/
+
+nodejs/project1/node_modules/statuses/
+
+nodejs/project1/node_modules/raw-body/
+
+node_modules/
