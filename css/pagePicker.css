@@ -10,13 +10,13 @@
   display: inline-block;
 }
 
-#likeButton{
+.likeButton{
   background-color: white;
   color: red;
   border: 1px solid red;
 }
 
-#dislikeButton{
+.dislikeButton{
   background-color: red;
   color: white;
   border: 1px solid red;
