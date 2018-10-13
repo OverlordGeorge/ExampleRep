@@ -36,25 +36,25 @@ app.get('/regApi', function (req,res) {
         let usersArr = JSON.parse(data);
         let name = req.query.name;
         let login = req.query.login;
-        let password = req.query.password
+        let password = req.query.password;
         writeData(usersArr, name, login, password);
+        res.send("rigistration complete");
     });
     });
 
 
     function writeData(arr, name, login, password) {
-        fs.writeFile("data.json", arr, function (err, data) {
-            let newObj = {
-                "name": name,
-                "login": login,
-                "password": password
-            }
-
-            arr.push(newObj);
-
+        let newObj = {
+            "name": name,
+            "login": login,
+            "password": password
+        };   //create new user
+        arr.push(newObj);  // add to old arr
+        let arrToWrite = JSON.stringify(arr);   //make back to json
+        fs.writeFile("data.json", arrToWrite, function (err, data) {   //write
 
         });
-    };
+    }
 
 
 
