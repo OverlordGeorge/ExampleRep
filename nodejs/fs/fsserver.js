@@ -38,7 +38,7 @@ app.get('/regApi', function (req,res) {
         let login = req.query.login;
         let password = req.query.password;
         writeData(usersArr, name, login, password);
-        res.send("rigistration complete");
+        res.send("registration complete");
     });
     });
 
