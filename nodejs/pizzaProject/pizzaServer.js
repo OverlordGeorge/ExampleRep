@@ -51,4 +51,19 @@ mongo.connect("mongodb://localhost:27017", function (err, client) {
 res.send("item updated!");
     });
     console.log("ive connected");
+
+    app.get('/showAll', function (req,res){
+        collection.find({}).toArray(function(err,result){
+            res.send(result);
+        })
+    });
+
+    app.get('/deleteItem', function (req, res) {
+
+        let id= req.query.id;
+        let mongoId = new mongodb.ObjectID(id);
+        collection.deleteOne({_id:mongoId});
+        res.send("item deleted!");
+    });
 });
+
