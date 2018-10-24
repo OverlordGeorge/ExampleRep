@@ -36,10 +36,15 @@ mongo.connect("mongodb://localhost:27017", function (err, client) {
 
     app.get('/sendName', function (req, res) {
         let name= req.query.name;
-        collection.find({name:name}).toArray(function (err,result) {
+        if (name==="") {
+            collection.find({}).toArray(function(err,result){
+                res.send(result);
+            })
+        }
+        else{collection.find({name:name}).toArray(function (err,result) {
             res.send(result);
-        });
-    })
+        });}
+    });
 
     app.get('/updateItem', function (req, res) {
 
