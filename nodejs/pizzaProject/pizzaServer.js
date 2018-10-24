@@ -3,7 +3,7 @@ let app = express();
 let port = 3000;
 let fs = require('fs');
 let mongo = require("mongodb").MongoClient;
-let mongodb= require("mongodb");
+let mongodb = require("mongodb");
 let cors = require('cors');
 
 app.use(cors());
@@ -35,34 +35,41 @@ mongo.connect("mongodb://localhost:27017", function (err, client) {
     });
 
     app.get('/sendName', function (req, res) {
-        let name= req.query.name;
-        collection.find({name:name}).toArray(function (err,result) {
-            res.send(result);
-        });
-    })
+        let name = req.query.name;
+        if (name === "") {
+            collection.find({}).toArray(function (err, result) {
+                res.send(result);
+            })
+        }
+        else {
+            collection.find({name: name}).toArray(function (err, result) {
+                res.send(result);
+            });
+        }
+    });
 
     app.get('/updateItem', function (req, res) {
 
-    let id= req.query.id;
+        let id = req.query.id;
         let mongoId = new mongodb.ObjectID(id);
-        let name= req.query.name;
-        let price= req.query.price;
-    collection.update({_id:mongoId}, {name: name, price: price});
-res.send("item updated!");
+        let name = req.query.name;
+        let price = req.query.price;
+        collection.update({_id: mongoId}, {name: name, price: price});
+        res.send("item updated!");
     });
     console.log("ive connected");
 
-    app.get('/showAll', function (req,res){
-        collection.find({}).toArray(function(err,result){
+    app.get('/showAll', function (req, res) {
+        collection.find({}).toArray(function (err, result) {
             res.send(result);
         })
     });
 
     app.get('/deleteItem', function (req, res) {
 
-        let id= req.query.id;
+        let id = req.query.id;
         let mongoId = new mongodb.ObjectID(id);
-        collection.deleteOne({_id:mongoId});
+        collection.deleteOne({_id: mongoId});
         res.send("item deleted!");
     });
 });
