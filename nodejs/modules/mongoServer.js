@@ -5,10 +5,11 @@ let fs = require('fs');
 let mongo = require("mongodb").MongoClient;
 let mongodb= require("mongodb");
 
-let User = require("./myModules/User");
+let checkBook = require("./myModules/checkBook");
+let mongoInput = require("./myModules/mongoInput");
 
 app.listen(port, function () {
-    console.log("server is working");
+    console.log("server is working")
 });
 
 mongo.connect("mongodb://localhost:27017", function (err, client) {
@@ -16,14 +17,29 @@ mongo.connect("mongodb://localhost:27017", function (err, client) {
         console.log("cant connect to server");
         return;
     }
+    let db = client.db("bookStore");
+    let collection = db.collection("books");
 
-    let db = client.db("registration");
-    let collection = db.collection("users");
-
-    let userColl = new User(collection);
-
-    userColl.insertUser("nick1","1234");
-   // userColl.insertUser("mary","222");
+    let check = new checkBook(collection);
+let input= new mongoInput(collection);
 
 
-});
+    app.get('/addBook', function (req, res) {
+        let name = req.query.name;
+        let author = req.query.author;
+        let date = req.query.date;
+        let type = req.query.type;
+
+        let checkEmpty = check.ifNoneEmpty(name, author, date, type);
+        if (checkEmpty === true) {
+
+            let checkExisting = check.checkExisting(name, author, function (data) {
+                if (data === false) {
+                     input.addBook(name, author, date, type);
+                     res.send("Book added!");
+                }
+            })
+        }
+    })
+
+})
