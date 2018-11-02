@@ -3,7 +3,7 @@ module.exports = class checkBook {
 this.collection=collection;
     }
 
-    ifNoneEmpty(name,author,date,type){
+    ifFull(name,author,date,type){
         if(name !== "" && author !== "" && date !== "" && type !== ""){
             return true;
         }
@@ -11,9 +11,11 @@ this.collection=collection;
     }
 
 
-    checkExisting(name,author,callBack){
+    checkNotExisting(name,author,callBack){
         this.collection.find({name: name, author: author}).toArray(function (err, result) {
-            if (result !==[]){
+
+            if (result.length===0){
+
                 callBack(true);
 
             }
