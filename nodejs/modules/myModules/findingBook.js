@@ -34,22 +34,13 @@ module.exports = class checkBook {
             }
             this.collection.find(otherObj).toArray(function (err, result) {
                 if (result.length >= 1) {
-
                     callBack(true, result);
-
                 }
                 else {
                     callBack(false);
                 }
-            }
-        };
+            })
+        });
     }
 
-)
-    ;
-}
-
-}
-
-
-}
+};

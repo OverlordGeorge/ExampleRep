@@ -4,7 +4,7 @@ this.collection=collection;
     }
 
     ifFull(name,author,date,type){
-        if(name !== "" && author !== "" && date !== "" && type !== ""){
+        if(name !== undefined && author !== undefined && date !== undefined && type !== undefined){
             return true;
         }
         else return false;
