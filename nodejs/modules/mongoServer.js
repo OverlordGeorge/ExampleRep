@@ -86,7 +86,6 @@ arr.push(obj);
 
             check.checkNotExisting(name, author, function (data) {
                 if (data === true) {
-
                     input.addBook(name, author, date, type);
                     res.send("Book added!");
                 }
@@ -94,6 +93,9 @@ arr.push(obj);
                     res.send("Book already exists")
                 }
             })
+        }
+        else{
+            res.send("some of the fields are empty")
         }
     })
 
