@@ -19,6 +19,15 @@ this.collection=collection;
                 callBack(true);
 
             }
+            else if (name.length > result.name){
+                let newObj= {};
+                for (let i=0; i<=name.length; i++){
+                    if (result.name !== name[i] ){
+                        newObj.push(result[i]);
+                        callBack(true, newObj);
+                    }
+                }
+            }
             else callBack(false);
         });
 

@@ -8,6 +8,7 @@ let mongodb = require("mongodb");
 let checkBook = require("./myModules/checkBook");
 let mongoInput = require("./myModules/mongoInput");
 let findingBook = require("./myModules/findingBook");
+let addAntology= require("./myModules/addAntology");
 
 app.listen(port, function () {
     console.log("server is working")
@@ -24,39 +25,38 @@ mongo.connect("mongodb://localhost:27017", function (err, client) {
     let check = new checkBook(collection);
     let input = new mongoInput(collection);
     let find = new findingBook(collection);
+    let antology= new addAntology(collection);
 
 
     app.get('/addAntology', function (req, res) {
         let author = req.query.author;
-        let names= req.query.name;
+        let name= req.query.name;
         let type = req.query.type;
-        let dates= req.query.type;
+        let date= req.query.date;
 
 
-let arr=[];
+
 let obj= {};
 
-        for (let i=0; i<=names.length; i++){
-            obj.name= name[i];
+
+            obj.name= name.split(",");
             obj.author = author;
             obj.type = type;
-            for (let i=0; i<=dates.length; i++){
-                obj.date = dates[i];
-            }
-        }
-arr.push(obj);
+            obj.date = date.split(",");
+
+
 
         let checkFull = check.ifFull(name, author, date, type);
         if (checkFull === true) {
 
-            check.checkNotExisting(name, author, function (data) {
+            check.checkNotExisting(obj.name, obj.author, function (data, newObj) {
                 if (data === true) {
 
-                    input.addBook(name, author, date, type);
-                    res.send("Book added!");
+                    antology.addBook(newObj);
+                    res.send("Books added!");
                 }
                 else {
-                    res.send("Book already exists")
+                    res.send("Books already exists");
                 }
             })
         }
@@ -64,13 +64,11 @@ arr.push(obj);
 
 
     app.get('/showBook', function (req, res) {
-        find.showBook(req.query.name, req.query.author, function (data, result, collection) {
-            if (data === true){
+        find.showBook(req.query.name, req.query.author, function (result) {
+
                 res.send(result);
-            }
-            else {
-                res.send(collection);
-            }
+
+
         });
     })
 
