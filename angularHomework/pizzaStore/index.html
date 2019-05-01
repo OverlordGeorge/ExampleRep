@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="pizzaStore.js"></script>
+</head>
+<body ng-app="AngApp" ng-controller="AngContr">
+
+<input placeholder="name to add" ng-model="name">
+<input placeholder="price to add" ng-model="price">
+<button ng-click="addPizza()">add</button>
+
+<table>
+    <thead>
+        <th>Type</th>
+        <th>Price</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="pizza in dataArr">
+            <td>{{pizza.name}}</td>
+            <td>{{pizza.price}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
