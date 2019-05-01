@@ -10,6 +10,7 @@ let mongoInput = require("./myModules/mongoInput");
 let findingBook = require("./myModules/findingBook");
 let addAntology= require("./myModules/addAntology");
 
+
 app.listen(port, function () {
     console.log("server is working")
 });
@@ -27,6 +28,21 @@ mongo.connect("mongodb://localhost:27017", function (err, client) {
     let find = new findingBook(collection);
     let antology= new addAntology(collection);
 
+
+
+    app.get('/updateBook', function(req,res){
+        let id = req.query.id;
+        let mongoId = new mongodb.ObjectID(id);
+        let author = req.query.author;
+        let name= req.query.name;
+        let type = req.query.type;
+        let date= req.query.date;
+
+        let obj= check.checkProperty(name, author, date, type);
+
+        collection.update({_id: mongoId}, {"$set": obj});
+        res.send("item updated!");
+    })
 
     app.get('/addAntology', function (req, res) {
         let author = req.query.author;
@@ -49,10 +65,10 @@ let obj= {};
         let checkFull = check.ifFull(name, author, date, type);
         if (checkFull === true) {
 
-            check.checkNotExisting(obj.name, obj.author, function (data, newObj) {
+            check.checkNotExistingAntology(obj.name, obj.author, function (data) {
                 if (data === true) {
 
-                    antology.addBook(newObj);
+                    antology.addBook(obj);
                     res.send("Books added!");
                 }
                 else {
