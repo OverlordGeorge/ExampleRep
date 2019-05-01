@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="node_modules/angular/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="app/app.js"></script>
+<style>
+    html, body{
+        height: 100%;
+    }
+</style>
+<body ng-app="AngApp" ng-controller="AngContr">
+
+<div class="container-fluid">
+    <div class="row h-100">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h2>{{title}}</h2>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="outfit in clothes">
+                    Name: {{outfit.name}} - <b>{{outfit.price}}</b>$
+                    <button class="btn btn-success" ng-if="outfit.fav == false" ng-click="outfit.fav = true">Add to favorites</button>
+                    <button class="btn btn-danger" ng-if="outfit.fav == true" ng-click="outfit.fav = false">Remove from favorites</button>
+                </li>
+            </ul>
+            <div class="row w-100 p-3">
+                <input class="form-control" placeholder="type name" ng-model="name">
+                <input class="form-control" placeholder="type price" ng-model="price">
+                <button class="btn" ng-click="addOutfit()">Add element</button>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+</body>
+</html>
