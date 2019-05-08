@@ -5,6 +5,7 @@
     <title>Title</title>
     <script src="./node_modules/angular/angular.min.js"></script>
     <script src="pizzaStore.js"></script>
+    <link rel="stylesheet" href="pizzaStore.css">
 </head>
 <body ng-app="AngApp" ng-controller="AngContr">
 
@@ -19,13 +20,28 @@
         <th></th>
     </thead>
     <tbody>
-        <tr ng-repeat="pizza in dataArr">
+        <tr ng-class="{chosen: $index== chosen}" ng-repeat="pizza in dataArr">
             <td>{{pizza.name}}</td>
             <td>{{pizza.price}}</td>
-            <td></td>
+            <td>
+                <button ng-click="deletePizza($index)">delete</button>
+                <button  ng-click="chosenPizza($index)">choose</button>
+                <button  ng-click="changePizza(pizza.name, pizza.price, $index)">change</button>
+            </td>
         </tr>
     </tbody>
 </table>
 
+    <div class="module" ng-if="showModule">
+        <div>
+           name <input ng-model="newObj.name" >
+           price <input ng-model="newObj.price" >
+            recipe <input>
+        </div>
+        <div>
+            <button ng-click="cancel()">cancel</button>
+            <button ng-click="saveChanges()">save</button>
+        </div>
+    </div>
 </body>
 </html>
