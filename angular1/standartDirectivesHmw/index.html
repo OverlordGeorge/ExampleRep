@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="hwk.js"></script>
+
+    <link rel="stylesheet" href="hwk.css">
+</head>
+<body ng-app="AngApp" ng-controller="AngContr">
+
+<div>
+<table>
+    <tbody>
+    <tr ng-repeat="country in data">
+        <td>
+            <button ng-click="showAlbums()" >{{country.name}}</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+<div ng-if="showAlbums">
+    <table>
+        <tbody>
+        <tr ng-repeat="albums in data">
+            <td>
+                <button ng-click="showImageModule()" ng-class="{chosen: $index== countryNumber }">{{albums.name}}</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button ng-click="goBack()">back</button>
+</div>
+
+
+
+</body>
+</html>

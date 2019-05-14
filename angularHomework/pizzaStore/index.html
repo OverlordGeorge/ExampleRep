@@ -11,6 +11,7 @@
 
 <input placeholder="name to add" ng-model="name">
 <input placeholder="price to add" ng-model="price">
+<input placeholder="recipe to add" ng-model="recipe">
 <button ng-click="addPizza()">add</button>
 
 <table>
@@ -20,23 +21,27 @@
         <th></th>
     </thead>
     <tbody>
-        <tr ng-class="{chosen: $index== chosen}" ng-repeat="pizza in dataArr">
+        <tr ng-repeat="pizza in dataArr" ng-class="{chosen: pizza.chosen== true}" >
             <td>{{pizza.name}}</td>
             <td>{{pizza.price}}</td>
             <td>
                 <button ng-click="deletePizza($index)">delete</button>
-                <button  ng-click="chosenPizza($index)">choose</button>
-                <button  ng-click="changePizza(pizza.name, pizza.price, $index)">change</button>
+                <button  ng-if="pizza.chosen== false" ng-click="chosenPizza($index, true)">choose</button>
+                <button ng-if="pizza.chosen== true" ng-click="chosenPizza($index, false)">unchoose</button>
+                <button  ng-click="changePizza(pizza.name, pizza.price, pizza.recipe, $index)">change</button>
             </td>
         </tr>
     </tbody>
 </table>
-
+    <div>
+        <button ng-click="deleteAll()">delete all</button>
+        <button ng-click="deleteAllChosen()">delete chosen</button>
+    </div>
     <div class="module" ng-if="showModule">
         <div>
            name <input ng-model="newObj.name" >
            price <input ng-model="newObj.price" >
-            recipe <input>
+            recipe <input ng-model="newObj.recipe">
         </div>
         <div>
             <button ng-click="cancel()">cancel</button>
