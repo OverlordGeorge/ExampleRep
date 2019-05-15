@@ -31,28 +31,40 @@ app.controller("AngContr", function ($scope) {
                 }
 
             ]
-        }
+        }];
 
-    $scope.showAlbums= false;
-    $scope.showImageModule= false;
-    $scope.name= $scope.data.name;
-    $scope.albumName= $scope.data.albums.name;
-    $scope.image= $scope.data.albums.image;
+    $scope.showAlbum= false;
+    $scope.showModule= false;
+
+    $scope.albums= "";
+    $scope.number;
+    $scope.newObj= {name: "", image: ""};
+
 
 
     $scope.goBack= function(){
-        if (showAlbums=== true) {
-            showAlbums === false
+        if ($scope.showAlbum=== true) {
+            $scope.showAlbum = false
         }
     }
 
 
-    $scope.showAlbums= function(){
-        $scope.showAlbums= true;
+    $scope.showAlbums= function(index){
+        $scope.showAlbum= true;
+        $scope.albums= $scope.data[index].albums;
     }
 
-    $scope.showAlbums= function(){
-        $scope.showImageModule= true;
+    $scope.showImageModule= function(index){
+        $scope.showModule= true;
+        $scope.newObj.image= $scope.albums[index].image;
+        $scope.newObj.name= $scope.albums[index].name;
+        $scope.number= index;
+
     }
 
-}
+
+    $scope.saveName= function(){
+    $scope.albums[$scope.number].name= $scope.newObj.name;
+    }
+
+})
