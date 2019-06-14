@@ -1,36 +1,18 @@
 let app = angular.module("AngApp",[]);
+let url= "http://tactravels.com:3000";
 
 app.controller("AngContr", function ($scope) {
+
+
+$scope.collectionNames = {"jamaicaBtn", "mexicoBtn", "dominicanRepublicBtn", "cruiseBtn"};
 
     $scope.data = [
         {
             name: "jamaicaBtn",
-            albums: [
-                {
-                    name: "Negril",
-                    image: "images/jamaica1.jpg"
-                },
-                {
-                    name: "Ocho rios",
-                    image: "images/jamaica2.jpg"
-                }
-            ]
-        },
-        {
-            name: "mexicoBtn",
-            albums: [
-                {
-                    name: "Reviera",
-                    image: "images/mexico1.jpg"
-                }, {
-                    name: "Cabo San Lucas",
-                    image: "images/mexico2.jpg"
-                }, {
-                    name: "Costa and Playa Mujeres",
-                    image: "images/mexico3.jpg"
-                }
 
-            ]
+
+            name: "mexicoBtn",
+
         }];
 
     $scope.showAlbum= false;
@@ -39,6 +21,8 @@ app.controller("AngContr", function ($scope) {
     $scope.albums= "";
     $scope.number;
     $scope.newObj= {name: "", image: ""};
+
+
 
 
 
@@ -67,4 +51,24 @@ app.controller("AngContr", function ($scope) {
     $scope.albums[$scope.number].name= $scope.newObj.name;
     }
 
+
+    $scope.findImages= function(collection) {
+
+        $.ajax({
+            type: "GET",
+            url: url + "/findCity",
+            data: {
+                'collection': collection,
+
+
+
+            },
+            success: function (data) {//array of items found
+
+
+
+            }
+        });
+
+    }
 })

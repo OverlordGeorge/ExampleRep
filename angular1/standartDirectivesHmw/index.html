@@ -13,9 +13,9 @@
 <div ng-if="!showAlbum">
 <table>
     <tbody>
-    <tr ng-repeat="country in data">
+    <tr ng-repeat="collection in data">
         <td>
-            <button ng-click="showAlbums($index)" >{{country.name}}</button>
+            <button ng-click="findImages(collection)" >{{collection}}</button>
         </td>
     </tr>
     </tbody>
