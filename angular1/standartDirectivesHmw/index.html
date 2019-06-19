@@ -5,15 +5,16 @@
     <title>Title</title>
     <script src="./node_modules/angular/angular.min.js"></script>
     <script src="hwk.js"></script>
-
+    <script src="services.js"></script>
+    <script src="directives.js"></script>
     <link rel="stylesheet" href="hwk.css">
 </head>
 <body ng-app="AngApp" ng-controller="AngContr">
 
-<div ng-if="!showAlbum">
+<div>
 <table>
     <tbody>
-    <tr ng-repeat="collection in data">
+    <tr ng-repeat="collection in collectionNames">
         <td>
             <button ng-click="findImages(collection)" >{{collection}}</button>
         </td>
@@ -22,26 +23,20 @@
 </table>
 </div>
 
-<div ng-if="showAlbum">
+<div>
     <table>
         <tbody>
-        <tr ng-repeat="album in albums">
+        <tr ng-repeat="city in cities">
             <td>
-                <button ng-click="showImageModule($index)" ng-class="{chosen: $index== countryNumber }">{{album.name}}</button>
+                <input ng-model="city.name">
+                <input type="file" ng-file-select="onFileSelect($files)" ng-model="city.cityImage">
+                <button ng-click="findImages(collection)" >save</button>
+                <img ng-src="{{city.cityImage}}">
             </td>
         </tr>
         </tbody>
     </table>
-    <button ng-click="goBack()">back</button>
 </div>
-
-<div ng-if="showModule">
-<img ng-src="{{newObj.image}}">
-    <input ng-model="newObj.name">
-    <button ng-click="saveName()">save</button>
-
-</div>
-
 
 
 </body>
