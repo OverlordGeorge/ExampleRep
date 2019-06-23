@@ -1,7 +1,7 @@
 let app = angular.module("AngApp",[]);
 let url= "http://tactravels.com:3000";
 
-app.controller("AngContr", function ($scope, request) {
+app.controller("AngContr", function ($scope, request, fileReader, $rootScope) {
 
 
 $scope.collectionNames = ["jamaicaBtn", "mexicoBtn", "dominicanRepublicBtn", "cruiseBtn"];
@@ -15,8 +15,9 @@ $scope.collectionNames = ["jamaicaBtn", "mexicoBtn", "dominicanRepublicBtn", "cr
     $scope.number;
     $scope.newObj= {name: "", image: ""};
 
-    $scope.cities= [];
 
+    $scope.cities= [];
+    $scope.collection="";
 
 
     $scope.goBack= function(){
@@ -47,10 +48,19 @@ $scope.collectionNames = ["jamaicaBtn", "mexicoBtn", "dominicanRepublicBtn", "cr
 
 
     $scope.findImages= function(collection) {
+        $scope.collection= collection;
         request.collectionRequest(collection, function (data) {
             $scope.cities = data;
         })
 
 
     }
+
+    $scope.saveCityData= function(name){
+    console.log($rootScope.storeImage);
+
+
+    }
+
+    $scope.storeImage= "";
 })

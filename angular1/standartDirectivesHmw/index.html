@@ -30,7 +30,7 @@
             <td>
                 <input ng-model="city.name">
                 <input type="file" ng-file-select="onFileSelect($files)" ng-model="city.cityImage">
-                <button ng-click="findImages(collection)" >save</button>
+                <button ng-click="saveCityData(city.name)" >save</button>
                 <img ng-src="{{city.cityImage}}">
             </td>
         </tr>
