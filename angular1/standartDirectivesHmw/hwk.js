@@ -6,6 +6,9 @@ app.controller("AngContr", function ($scope, request, fileReader, $rootScope) {
 
 $scope.collectionNames = ["jamaicaBtn", "mexicoBtn", "dominicanRepublicBtn", "cruiseBtn"];
 
+$scope.albumTab= false;
+$scope.storyTab= false;
+$scope.rightBar= false;
 
 
     $scope.showAlbum= false;
@@ -18,6 +21,8 @@ $scope.collectionNames = ["jamaicaBtn", "mexicoBtn", "dominicanRepublicBtn", "cr
 
     $scope.cities= [];
     $scope.collection="";
+    $scope.stories=[];
+    $scope.title="";
 
 
     $scope.goBack= function(){
@@ -51,6 +56,7 @@ $scope.collectionNames = ["jamaicaBtn", "mexicoBtn", "dominicanRepublicBtn", "cr
         $scope.collection= collection;
         request.collectionRequest(collection, function (data) {
             $scope.cities = data;
+            $scope.rightBar= true;
         })
 
 
@@ -63,4 +69,22 @@ $scope.collectionNames = ["jamaicaBtn", "mexicoBtn", "dominicanRepublicBtn", "cr
     }
 
     $scope.storeImage= "";
+
+
+    $scope.showAlbumTab= function(){
+        $scope.albumTab= true;
+    }
+
+    $scope.showStoryTab=function(){
+        $scope.storyTab= true;
+    }
+
+    $scope.findStory= function(title) {
+        $scope.title = title;
+        request.storyRequest(title, function (data) {
+            $scope.stories = data;
+            $scope.rightBar = true;
+
+        })
+    }
 })

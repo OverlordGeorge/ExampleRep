@@ -22,17 +22,20 @@ app.factory('request', function ($http) {
 
 app.factory('request', function ($http) {
     return {
-        collectionRequest: function (collection, callback) {
+        storyRequest: function (title, callback) {
             $http({
                 method: "GET",
-                url: "http://tactravels.com:3000/findCity",
+                url: "http://tactravels.com:3000/findStory",
                 params: {
-                    collection: collection
+                    title: title
                 }
             }).then(function(data){
                 callback(data.data);
+
             })
+
         }
+
 
     }}
 
