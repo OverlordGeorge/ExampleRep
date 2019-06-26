@@ -11,23 +11,14 @@ app.factory('request', function ($http) {
             }).then(function(data){
                 callback(data.data);
             })
-        }
+        },
 
-    }}
-
-
-
-);
-
-
-app.factory('request', function ($http) {
-    return {
-        storyRequest: function (title, callback) {
+        storyRequest: function ( callback) {
             $http({
                 method: "GET",
                 url: "http://tactravels.com:3000/findStory",
                 params: {
-                    title: title
+
                 }
             }).then(function(data){
                 callback(data.data);
@@ -36,9 +27,12 @@ app.factory('request', function ($http) {
 
         }
 
-
-    }}
-
+    }
 
 
-);
+});
+
+
+
+
+

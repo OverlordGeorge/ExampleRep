@@ -28,8 +28,8 @@
 
 
 
-    <div class="content_box">
-        <div class="left_bar" ng-model="albumTab" ng-if="albumTab=true" >
+    <div class="content_box" ng-if="albumTab">
+        <div class="left_bar"  >
             <ul class=" nav-tabs--vertical nav" role="navigation">
                 <li class="nav-item" ng-repeat="collection in collectionNames">
                     <a href="#lorem" ng-click="findImages(collection)" class="nav-link active" data-toggle="tab" role="tab" aria-controls="lorem">{{collection}}</a>
@@ -65,11 +65,11 @@
 
 
 
-<div class="content_box">
-    <div class="left_bar" ng-model="storyTab" ng-if="storyTab=true" >
+<div class="content_box" ng-if="storyTab" >
+    <div class="left_bar" >
         <ul class=" nav-tabs--vertical nav" role="navigation">
             <li class="nav-item" ng-repeat="story in stories">
-                <a href="#lorem" ng-click="findStory(story.title)" class="nav-link active" data-toggle="tab" role="tab" aria-controls="lorem">{{story.title}}</a>
+                <a href="#lorem" ng-click="showStory(story)" class="nav-link active" data-toggle="tab" role="tab" aria-controls="lorem">{{story.title}}</a>
             </li>
         </ul>
     </div>
@@ -79,7 +79,7 @@
             <div class="tab-pane fade show active" id="lorem" role="tabpanel">
                 <div>
 
-                    <div ng-repeat="story in stories"  style=" margin-bottom: 2%">
+                    <div style=" margin-bottom: 2%">
                         <div class="row">
                             <input class="col-6" ng-model="story.title">
                             <div class="col-6">
@@ -91,7 +91,7 @@
                             <input class="col-12" ng-model="story.text">
                         </div>
                         <div class="row">
-                            <button class="col-12" ng-click="saveCityData(city.name)" >save</button>
+                           <!-- <button class="col-12" ng-click="saveCityData(city.name)" >save</button> -->
 
                         </div>
                     </div>

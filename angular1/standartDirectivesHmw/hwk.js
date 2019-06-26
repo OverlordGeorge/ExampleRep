@@ -23,6 +23,7 @@ $scope.rightBar= false;
     $scope.collection="";
     $scope.stories=[];
     $scope.title="";
+    $scope.story={};
 
 
     $scope.goBack= function(){
@@ -71,20 +72,28 @@ $scope.rightBar= false;
     $scope.storeImage= "";
 
 
-    $scope.showAlbumTab= function(){
+    $scope.showAlbumsTab= function(){
+        $scope.storyTab= false;
         $scope.albumTab= true;
     }
 
-    $scope.showStoryTab=function(){
+    $scope.showStoriesTab=function(){
+        $scope.findStory();
+        $scope.albumTab= false;
         $scope.storyTab= true;
     }
 
-    $scope.findStory= function(title) {
-        $scope.title = title;
-        request.storyRequest(title, function (data) {
+    $scope.findStory= function() {
+
+        request.storyRequest(function (data) {
             $scope.stories = data;
             $scope.rightBar = true;
 
         })
+    }
+
+    $scope.showStory=function(story){
+        $scope.story=story;
+
     }
 })
