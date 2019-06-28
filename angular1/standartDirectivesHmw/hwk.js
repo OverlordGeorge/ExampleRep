@@ -100,4 +100,13 @@ $scope.rightBar= false;
     $scope.saveStoryData= function (name) {
 
     }
+
+
+
+    $scope.showReviewsTab= function(){
+        $scope.findStory();
+        $scope.albumTab= false;
+        $scope.storyTab= false;
+        $scope.reviewTab= true;
+    }
 })

@@ -25,6 +25,20 @@ app.factory('request', function ($http) {
 
             })
 
+        },
+
+        reviewRequest: function ( callback) {
+            $http({
+                method: "GET",
+                url: "http://tactravels.com:3000/findReview",
+                params: {
+
+                }
+            }).then(function(data){
+                callback(data.data);
+
+            })
+
         }
 
     }
