@@ -96,4 +96,8 @@ $scope.rightBar= false;
         $scope.story=story;
 
     }
+    
+    $scope.saveStoryData= function (name) {
+
+    }
 })
