@@ -1,4 +1,3 @@
-
 app.factory('request', function ($http) {
     return {
         collectionRequest: function (collection, callback) {
@@ -8,33 +7,41 @@ app.factory('request', function ($http) {
                 params: {
                     collection: collection
                 }
-            }).then(function(data){
+            }).then(function (data) {
                 callback(data.data);
             })
         },
-
-        storyRequest: function ( callback) {
+        updateAlbum: function (file, name, id, collection) {
+            let fd = new FormData();
+            fd.append("image", file);
+            fd.append("name", name);
+            fd.append('collection', collection);
+            fd.append('id', id);
+            $http.post("http://localhost:3000/updateAlbum", fd, {  //put http://tactravels.com:3000/updateAlbum instead there
+                withCredentials: true,
+                headers: {'Content-Type': undefined},
+                transformRequest: angular.identity,
+            }).then(function (data) {
+                console.log(data);
+            })
+        },
+        storyRequest: function (callback) {
             $http({
                 method: "GET",
                 url: "http://tactravels.com:3000/findStory",
-                params: {
-
-                }
-            }).then(function(data){
+                params: {}
+            }).then(function (data) {
                 callback(data.data);
 
             })
 
         },
-
-        reviewRequest: function ( callback) {
+        reviewRequest: function (callback) {
             $http({
                 method: "GET",
                 url: "http://tactravels.com:3000/findReview",
-                params: {
-
-                }
-            }).then(function(data){
+                params: {}
+            }).then(function (data) {
                 callback(data.data);
 
             })
