@@ -1,7 +1,7 @@
 let app = angular.module("AngApp",[]);
 let url= "http://tactravels.com:3000";
 
-app.controller("AngContr", function ($scope, request, fileReader, $rootScope) {
+app.controller("AngContr", function ($scope, request) {
 
 
 $scope.collectionNames = ["jamaicaBtn", "mexicoBtn", "dominicanRepublicBtn", "cruiseBtn"];
@@ -65,10 +65,25 @@ $scope.rightBar= false;
 
     }
 
-    $scope.saveCityData= function(name){
-    console.log($rootScope.storeImage);
+    function urltoFile(url, filename, mimeType) {
+        mimeType = mimeType || (url.match(/^data:([^;]+);/) || '')[1];
+        return (fetch(url)
+                .then(function (res) {
+                    return res.arrayBuffer();
+                })
+                .then(function (buf) {
+                    return new File([buf], filename, {type: mimeType});
+                })
+        );
+    }
 
-
+    $scope.saveCityData= function(name, image, id){  //function that called by click "save"
+        let strImage = image;
+        let filename = "image";
+        let collection = $scope.collection;
+        urltoFile(strImage, filename).then(function (imageFile) {
+            request.updateAlbum(imageFile, name, id, collection);
+        });
     }
 
     $scope.storeImage= "";
