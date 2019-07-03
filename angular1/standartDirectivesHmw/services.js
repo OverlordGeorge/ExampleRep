@@ -17,7 +17,7 @@ app.factory('request', function ($http) {
             fd.append("name", name);
             fd.append('collection', collection);
             fd.append('id', id);
-            $http.post("http://localhost:3000/updateAlbum", fd, {  //put http://tactravels.com:3000/updateAlbum instead there
+            $http.post("http://tactravels.com:3000/updateAlbum", fd, {  //put http://tactravels.com:3000/updateAlbum instead there
                 withCredentials: true,
                 headers: {'Content-Type': undefined},
                 transformRequest: angular.identity,
