@@ -24,6 +24,8 @@ $scope.rightBar= false;
     $scope.stories=[];
     $scope.title="";
     $scope.story={};
+    $scope.reviews=[];
+    $scope.review={};
 
 
     $scope.goBack= function(){
@@ -101,10 +103,16 @@ $scope.rightBar= false;
 
     }
 
+$scope.findReview= function(){
+    request.reviewRequest(function (data){
+        $scope.rightBar = true;
+
+    })
+}
 
 
     $scope.showReviewsTab= function(){
-        $scope.findStory();
+        $scope.findReview();
         $scope.albumTab= false;
         $scope.storyTab= false;
         $scope.reviewTab= true;
