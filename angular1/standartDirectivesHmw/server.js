@@ -68,4 +68,22 @@ mongo.connect("mongodb://localhost:27017", function (err, client) {
         res.send("test");
     });
 
+
+    app.post("/updateStory", upload.single("image"), function (req, res) {
+        let type = upload;
+        let filename = req.file.filename;
+        let name = req.body.name;
+        let collName = req.body.collection;
+        let id = req.body.id;
+        let collection = db.collection(collName);
+
+        var myquery = {'_id':ObjectID(id)};
+        var newvalues = { $set: {name: name, cityImage: "uploads/"+filename } };
+        collection.updateOne(myquery, newvalues, function(err, res) {
+            if (err) throw err;
+        });
+    });
+
+
+
 })

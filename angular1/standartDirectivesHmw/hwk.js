@@ -114,8 +114,13 @@ $scope.rightBar= false;
 
     }
     
-    $scope.saveStoryData= function (name) {
+    $scope.saveStoryData= function (id, title, text, image) {
+        let strImage = image;
+        let filename = "image";
 
+        urltoFile(strImage, filename).then(function (imageFile) {
+            request.updateStory(imageFile, id, title, text);
+        });
     }
 
 $scope.findReview= function(){
