@@ -13,10 +13,10 @@ app.factory('request', function ($http) {
         },
         updateAlbum: function (file, name, id, collection) {
             let fd = new FormData();
-            fd.append("image", file);
             fd.append("name", name);
             fd.append('collection', collection);
             fd.append('id', id);
+            fd.append("image", file);  //suppose to be last
             $http.post("http://tactravels.com:3000/updateAlbum", fd, {  //put http://tactravels.com:3000/updateAlbum instead there
                 withCredentials: true,
                 headers: {'Content-Type': undefined},
