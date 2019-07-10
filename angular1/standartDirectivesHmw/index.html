@@ -23,7 +23,7 @@
         <button ng-click="showStoriesTab()" >Stories</button>
         <button ng-click="showAlbumsTab()" >Albums</button>
         <button ng-click="showReviewsTab()" >Reviews</button>
-        <button ng-click="" >About</button>
+        <button ng-click="showAboutTab()" >About</button>
         <button ng-click="" >Contact</button>
 
     </div>
@@ -92,9 +92,62 @@
 </div>
 
 
+<div class="row" ng-if="reviewTab">
+
+    <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a ng-repeat="review in reviews" ng-click="showReview(review)" class="list-group-item list-group-item-action " id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">{{review.name}}</a>
+        </div>
+    </div>
+
+    <div class="col-8" ng-model="rightBar" ng-if="rightBar=true">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"></div>
+            <div class="row">
+                <input class="col-12" ng-model="review.name">
+
+            </div>
+            <div class="row">
+                <textarea class="col-12" ng-model="review.text"></textarea>
+            </div>
+            <div class="row">
+                <button class="col-12" ng-click="saveReviewData(review._id, review.name, review.text)" >save</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 
 
+<div class="row" ng-if="aboutTab">
 
+
+    <div class="col-12">
+
+            <div class="row">
+                <textarea class="col-6" ng-model="about.name"></textarea>
+                <div class="col-6">
+                    <img ng-src="{{}}" class="row col-12">
+                    <input type="file" ng-file-select="onFileSelect($files)" ng-model="about.image" class="row col-12">
+                </div>
+            </div>
+            <div class="row">
+                <textarea class="col-12" ng-model="about.text"></textarea>
+            </div>
+            <div class="row">
+                <textarea class="col-12" ng-model="about.mission"></textarea>
+
+            </div>
+
+            <div class="row">
+                <button class="col-12" ng-click="saveAboutData(about._id, about.name, about.image, about.text, about.mission)" >save</button>
+
+            </div>
+
+        </div>
+
+</div>
 
 
 

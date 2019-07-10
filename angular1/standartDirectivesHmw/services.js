@@ -63,7 +63,50 @@ app.factory('request', function ($http) {
 
             })
 
-        }
+        },
+
+        updateReview: function (id, name, text) {
+            let fd = new FormData();
+            fd.append("id", id);
+            fd.append('name', name);
+            fd.append('text', text);
+
+            $http.post("http://tactravels.com:3000/updateReview", fd, {
+                withCredentials: true,
+                headers: {'Content-Type': undefined},
+                transformRequest: angular.identity,
+            }).then(function (data) {
+                console.log(data);
+            })
+        },
+
+        aboutRequest: function (callback) {
+            $http({
+                method: "GET",
+                url: "http://tactravels.com:3000/findAbout",
+                params: {}
+            }).then(function (data) {
+                callback(data.data);
+
+            })
+
+        },
+
+        updateAbout: function (id, name, file, text, mission) {
+            let fd = new FormData();
+            fd.append('id', id);
+            fd.append("name", name);
+            fd.append('text', text);
+            fd.append("mission", mission);
+            fd.append("image", file);  //suppose to be last
+            $http.post("http://tactravels.com:3000/updateAbout", fd, {  //put http://tactravels.com:3000/updateAlbum instead there
+                withCredentials: true,
+                headers: {'Content-Type': undefined},
+                transformRequest: angular.identity,
+            }).then(function (data) {
+                console.log(data);
+            })
+        },
 
     }
 

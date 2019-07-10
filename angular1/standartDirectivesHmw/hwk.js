@@ -8,6 +8,8 @@ $scope.collectionNames = ["jamaicaBtn", "mexicoBtn", "dominicanRepublicBtn", "cr
 
 $scope.albumTab= false;
 $scope.storyTab= false;
+$scope.reviewTab= false;
+$scope.aboutTab= false;
 $scope.rightBar= false;
 
 
@@ -26,6 +28,7 @@ $scope.rightBar= false;
     $scope.story={};
     $scope.reviews=[];
     $scope.review={};
+    $scope.about={};
 
 
     $scope.goBack= function(){
@@ -92,25 +95,30 @@ $scope.rightBar= false;
     $scope.showAlbumsTab= function(){
         $scope.storyTab= false;
         $scope.albumTab= true;
+        $scope.reviewTab= false;
+        $scope.aboutTab= false;
     }
 
     $scope.showStoriesTab=function(){
         $scope.findStory();
         $scope.albumTab= false;
         $scope.storyTab= true;
+        $scope.reviewTab= false;
+        $scope.aboutTab= false;
     }
 
     $scope.findStory= function() {
 
         request.storyRequest(function (data) {
             $scope.stories = data;
-            $scope.rightBar = true;
+
 
         })
     }
 
     $scope.showStory=function(story){
         $scope.story=story;
+        $scope.rightBar= true;
 
     }
     
@@ -123,12 +131,6 @@ $scope.rightBar= false;
         });
     }
 
-$scope.findReview= function(){
-    request.reviewRequest(function (data){
-        $scope.rightBar = true;
-
-    })
-}
 
 
     $scope.showReviewsTab= function(){
@@ -136,5 +138,53 @@ $scope.findReview= function(){
         $scope.albumTab= false;
         $scope.storyTab= false;
         $scope.reviewTab= true;
+        $scope.aboutTab= false;
     }
+
+
+$scope.findReview= function(){
+    request.reviewRequest(function (data){
+        $scope.reviews= data;
+
+
+    })
+}
+
+$scope.showReview= function(review){
+        $scope.review= review;
+        $scope.rightBar= true;
+}
+
+
+    $scope.saveReviewData= function (id, name, text) {
+    request.updateReview(id, name, text);
+
+    }
+
+
+    $scope.showAboutTab= function(){
+        $scope.findAbout();
+        $scope.albumTab= false;
+        $scope.storyTab= false;
+        $scope.reviewTab= false;
+        $scope.aboutTab= true;
+    }
+
+    $scope.findAbout= function(){
+        request.aboutRequest(function(data){
+            $scope.about= data;
+        })
+    }
+
+
+
+    $scope.saveAboutData= function (id, name, image, text, mission) {
+        let strImage = image;
+        let filename = "image";
+
+        urltoFile(strImage, filename).then(function (imageFile) {
+            request.updateAbout(id, name, imageFile, text, mission);
+        });
+    }
+
 })
