@@ -39,51 +39,20 @@ app.listen(port, function () {
     console.log("server is working to upload files");
 });
 
-//image up there is the name of the field in FormData where i keep file
 
-mongo.connect("mongodb://localhost:27017", function (err, client) {
-    if (err) {
-        console.log("cant connect to server");
-        return;
-    }
 
-    let db = client.db("config");
 
-    app.post("/updateAlbum", upload.single("image"), function (req, res) {
-        let type = upload;
-        let filename = req.file.filename;
-        let name = req.body.name;
-        let collName = req.body.collection;
+
+    app.get("/updateReview", function (req, res) {
+
         let id = req.body.id;
-        let collection = db.collection(collName);
-
-        var myquery = {'_id':ObjectID(id)};
-        var newvalues = { $set: {name: name, cityImage: "uploads/"+filename } };
-        collection.updateOne(myquery, newvalues, function(err, res) {
-            if (err) throw err;
-        });
-    });
-
-    app.get("/test", function (req, res) {
-        res.send("test");
-    });
-
-
-    app.post("/updateStory", upload.single("image"), function (req, res) {
-        let type = upload;
-        let filename = req.file.filename;
         let name = req.body.name;
-        let collName = req.body.collection;
-        let id = req.body.id;
-        let collection = db.collection(collName);
+        let text= req.body.text;
 
-        var myquery = {'_id':ObjectID(id)};
-        var newvalues = { $set: {name: name, cityImage: "uploads/"+filename } };
-        collection.updateOne(myquery, newvalues, function(err, res) {
-            if (err) throw err;
-        });
+
     });
 
 
 
-})
+
+

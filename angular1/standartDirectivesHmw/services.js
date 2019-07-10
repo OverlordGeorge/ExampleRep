@@ -66,18 +66,23 @@ app.factory('request', function ($http) {
         },
 
         updateReview: function (id, name, text) {
-            let fd = new FormData();
-            fd.append("id", id);
-            fd.append('name', name);
-            fd.append('text', text);
 
-            $http.post("http://tactravels.com:3000/updateReview", fd, {
-                withCredentials: true,
-                headers: {'Content-Type': undefined},
-                transformRequest: angular.identity,
+            let fd = {};
+            fd["id"]=id;
+            fd["name"]=name;
+            fd["text"]=text;
+
+            $http({
+                method: 'GET',
+                url: "http://tactravels.com:3000/updateReview?id=" + id + "&name=" +name+ "&text=" + text
+            })
+
+
+            /*$http.post("http://localhost:3000/updateReview", JSON.stringify(fd), {
+                'Content-Type': 'application/x-www-form-urlencoded'
             }).then(function (data) {
                 console.log(data);
-            })
+            })*/
         },
 
         aboutRequest: function (callback) {
