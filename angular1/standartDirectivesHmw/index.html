@@ -24,7 +24,7 @@
         <button ng-click="showAlbumsTab()" >Albums</button>
         <button ng-click="showReviewsTab()" >Reviews</button>
         <button ng-click="showAboutTab()" >About</button>
-        <button ng-click="" >Contact</button>
+        <button ng-click="showContactTab()" >Contact</button>
 
     </div>
 
@@ -149,6 +149,9 @@
 
 </div>
 
+<div ng-if="contactTab">
+    <contact-info></contact-info>
+</div>
 
 
 
