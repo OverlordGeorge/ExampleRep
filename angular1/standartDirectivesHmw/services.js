@@ -68,13 +68,13 @@ app.factory('request', function ($http) {
         updateReview: function (id, name, text) {
 
             let fd = {};
-            fd["id"]=id;
-            fd["name"]=name;
-            fd["text"]=text;
+            fd["id"] = id;
+            fd["name"] = name;
+            fd["text"] = text;
 
             $http({
                 method: 'GET',
-                url: "http://tactravels.com:3000/updateReview?id=" + id + "&name=" +name+ "&text=" + text
+                url: "http://tactravels.com:3000/updateReview?id=" + id + "&name=" + name + "&text=" + text
             })
 
 
@@ -113,9 +113,36 @@ app.factory('request', function ($http) {
             })
         },
 
+
+        contactRequest: function (callback) {
+            $http({
+                method: "GET",
+                url: "http://tactravels.com:3000/findContact",
+                params: {}
+            }).then(function (data) {
+                callback(data.data);
+
+            })
+
+        },
+
+        updateContact: function (id, facebook, email, phone) {
+
+            let fd = {};
+            fd["id"] = id;
+            fd["facebook"] = facebook;
+            fd["email"] = email;
+            fd["phone"] = phone;
+
+            $http({
+                method: 'GET',
+                url: "http://tactravels.com:3000/updateContact?id=" + id + "&facebook=" + facebook + "&email=" + email + "&phone=" + phone
+            })
+
+
+        }
+
     }
-
-
 });
 
 

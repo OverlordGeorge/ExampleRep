@@ -24,7 +24,7 @@
         <button ng-click="showAlbumsTab()" >Albums</button>
         <button ng-click="showReviewsTab()" >Reviews</button>
         <button ng-click="showAboutTab()" >About</button>
-        <button ng-click="" >Contact</button>
+        <button ng-click="showContactTab()" >Contact</button>
 
     </div>
 
@@ -128,7 +128,7 @@
             <div class="row">
                 <textarea class="col-6" ng-model="about.name"></textarea>
                 <div class="col-6">
-                    <img ng-src="{{}}" class="row col-12">
+                    <img ng-src="{{about.image}}" class="row col-12">
                     <input type="file" ng-file-select="onFileSelect($files)" ng-model="about.image" class="row col-12">
                 </div>
             </div>
@@ -151,6 +151,30 @@
 
 
 
+<div class="row" ng-if="contactTab">
+
+
+    <div class="col-12">
+
+        <div class="row">
+            <textarea class="col-6" ng-model="contact.facebook"></textarea>
+        </div>
+        <div class="row">
+            <textarea class="col-12" ng-model="contact.email"></textarea>
+        </div>
+        <div class="row">
+            <textarea class="col-12" ng-model="contact.phone"></textarea>
+
+        </div>
+
+        <div class="row">
+            <button class="col-12" ng-click="saveContactData(contact._id, contact.facebook, contact.email, contact.phone)" >save</button>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 

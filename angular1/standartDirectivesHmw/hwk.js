@@ -10,6 +10,7 @@ $scope.albumTab= false;
 $scope.storyTab= false;
 $scope.reviewTab= false;
 $scope.aboutTab= false;
+$scope.contactTab=false;
 $scope.rightBar= false;
 
 
@@ -29,6 +30,7 @@ $scope.rightBar= false;
     $scope.reviews=[];
     $scope.review={};
     $scope.about={};
+    $scope.contact={};
 
 
     $scope.goBack= function(){
@@ -97,6 +99,7 @@ $scope.rightBar= false;
         $scope.albumTab= true;
         $scope.reviewTab= false;
         $scope.aboutTab= false;
+        $scope.contactTab= false;
     }
 
     $scope.showStoriesTab=function(){
@@ -105,6 +108,7 @@ $scope.rightBar= false;
         $scope.storyTab= true;
         $scope.reviewTab= false;
         $scope.aboutTab= false;
+        $scope.contactTab= false;
     }
 
     $scope.findStory= function() {
@@ -139,6 +143,7 @@ $scope.rightBar= false;
         $scope.storyTab= false;
         $scope.reviewTab= true;
         $scope.aboutTab= false;
+        $scope.contactTab= false;
     }
 
 
@@ -167,12 +172,13 @@ $scope.showReview= function(review){
         $scope.albumTab= false;
         $scope.storyTab= false;
         $scope.reviewTab= false;
+        $scope.contactTab= false;
         $scope.aboutTab= true;
     }
 
     $scope.findAbout= function(){
         request.aboutRequest(function(data){
-            $scope.about= data;
+            $scope.about= data[0];
         })
     }
 
@@ -185,6 +191,32 @@ $scope.showReview= function(review){
         urltoFile(strImage, filename).then(function (imageFile) {
             request.updateAbout(id, name, imageFile, text, mission);
         });
+    }
+
+
+    $scope.showContactTab= function(){
+        $scope.findContact();
+        $scope.albumTab= false;
+        $scope.storyTab= false;
+        $scope.reviewTab= false;
+        $scope.aboutTab= false;
+        $scope.contactTab= true;
+    }
+
+
+    $scope.findContact= function(){
+        request.contactRequest(function (data){
+            $scope.contact= data[0];
+
+
+        })
+    };
+
+
+
+    $scope.saveContactData= function (id, facebook, email, phone) {
+        request.updateContact(id, facebook, email, phone);
+
     }
 
 })
