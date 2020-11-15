@@ -1,0 +1,16 @@
+
+
+<h1>Hello {{title}}</h1>
+<button (click)="clickMe()"> click me </button>
+
+<div *ngFor="let client of clients">
+    <p>
+      {{client.name}} - {{client.price}}
+      <button (click)="calcTheTax(client)">calc the tax</button>
+    </p>
+    <hr>
+</div>
+
+<div>
+  <h3> {{calcSum()}} </h3>
+</div>
