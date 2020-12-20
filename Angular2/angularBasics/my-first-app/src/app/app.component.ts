@@ -1,4 +1,16 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
+export interface Department {
+  name: string,
+  workers: Array<Worker>
+}
+
+export interface Worker {
+  name: string,
+  position: string,
+  age: number,
+  salary?: number //optional param
+}
 
 @Component({
   selector: 'app-root',
@@ -7,48 +19,45 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'Brianna';
-
-  clients = [
+  departments: Array<Department> = [
     {
-      "name":"Sam",
-      "price": 100
+      name: "South department",
+      workers: [
+        {
+          name: "Sam",
+          position: "manager",
+          age: 19
+        },
+        {
+          name: "Nick",
+          position: "driver",
+          age: 41,
+          salary: 1000
+        },
+        {
+          name: "Ally",
+          position: "medic",
+          age: 28,
+        }
+      ]
     },
     {
-      "name": "Nick",
-      "price": 250
+      name: "North Department",
+      workers: [{
+        name: "Kris",
+        position: "manager",
+        age: 33,
+      }]
     },
     {
-      "name":"Martha",
-      "price": 80
+      name: "Central Department",
+      workers: [{
+        name: "Alex",
+        position: "manager",
+        age: 34,
+      }]
     }
   ]
 
-  calcTheTax(client){
-      alert(client.price * 0.1);
-  }
-
-  calcSum(){
-    let sum = 0;
-    this.clients.forEach( (client) => {
-          sum+=client.price;
-      })
-    /*
-        this.clients.forEach( function(client){
-          sum+=client.price;
-      })
-     */
-
-    /*
-        for (let i=0;i<clients.length;i++){
-            sum = sum + clients[i].client;
-        }
-     */
-    return sum;
-  }
-
-  clickMe() {
-    alert("func");
-  }
 
 }
