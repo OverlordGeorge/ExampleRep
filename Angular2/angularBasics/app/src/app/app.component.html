@@ -3,3 +3,26 @@
 <h1 *ngIf="show">Bye</h1>
 
 <button (click)="changeShow()">change</button>
+
+
+<input [(ngModel)]="name"/>
+
+
+
+<p>
+    Hi {{name}}
+</p>
+
+<div *ngFor="let pizza of pizzas">
+    <p>name: {{pizza.name}} <button (click)="addToCart(pizza)">add to cart</button></p>
+    <p>price: $ {{pizza.price}}</p>
+    <p>likes: {{pizza.likes}} <button (click)="addLike(pizza)">+</button></p>
+</div>
+
+<hr>
+<h1>Cart</h1>
+<p>Total: $ {{sum}}</p>
+<div *ngFor="let pizza of cart">
+<p>name: {{pizza.name}}</p>
+    <p>price: $ {{pizza.price}}</p>
+</div>
