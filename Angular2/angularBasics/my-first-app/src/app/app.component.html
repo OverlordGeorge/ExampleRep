@@ -1,16 +1,11 @@
 
-
-<h1>Hello {{title}}</h1>
-<button (click)="clickMe()"> click me </button>
-
-<div *ngFor="let client of clients">
-    <p>
-      {{client.name}} - {{client.price}}
-      <button (click)="calcTheTax(client)">calc the tax</button>
-    </p>
-    <hr>
-</div>
+<h1>My workers</h1>
 
 <div>
-  <h3> {{calcSum()}} </h3>
+
+  <div *ngFor="let department of departments">
+    <h3>{{department.name}}</h3>
+    <app-worker *ngFor="let worker of department.workers" [workerData]="worker"></app-worker>
+  </div>
+
 </div>
