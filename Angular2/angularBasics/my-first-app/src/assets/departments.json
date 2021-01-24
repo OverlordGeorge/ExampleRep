@@ -1,0 +1,28 @@
+[
+  {
+    "name": "South department",
+    "workers": [
+      {
+        "name": "Sam",
+        "position": "manager",
+        "age": 19
+      }
+    ]
+  },
+  {
+    "name": "North Department",
+    "workers": [{
+      "name": "Kris",
+      "position": "manager",
+      "age": 33
+    }]
+  },
+  {
+    "name": "Central Department",
+    "workers": [{
+      "name": "123",
+      "position": "123",
+      "age": 123
+    }]
+  }
+]
