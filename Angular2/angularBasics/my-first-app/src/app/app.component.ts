@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {DepartmentsService} from "./services/departments.service";
 
 export interface Department {
   name: string,
@@ -19,7 +20,17 @@ export interface Worker {
 })
 export class AppComponent {
 
-  departments: Array<Department> = [
+  departments: Array<Department> = [];
+
+  constructor(private departmentsService: DepartmentsService) {
+    this.departmentsService.getDepartments().subscribe( (data: Array<Department>) => { //when dta is received
+      this.departments = data;  //save it into departments variable
+    }, (err) => {   // there we catch error situation
+      alert(err.message);
+    });
+  }
+
+  /*departments: Array<Department> = [
     {
       name: "South department",
       workers: [
@@ -57,7 +68,7 @@ export class AppComponent {
         age: 34,
       }]
     }
-  ]
+  ]*/
 
 
 }
