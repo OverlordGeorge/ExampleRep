@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Componenta, OnInit } from '@angular/core';
 import {CatService} from "../../services/cat.service";
 import {ActivatedRoute} from "@angular/router";
 

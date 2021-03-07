@@ -6,6 +6,7 @@ import { HotelListComponent } from './components/hotel-list/hotel-list.component
 import { RoomListComponent } from './components/room-list/room-list.component';
 import { RoomInfoComponent } from './components/room-info/room-info.component';
 import {RouterModule, Routes} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes= [
     { path: '', redirectTo: 'hotels', pathMatch: 'full'},
@@ -23,7 +24,8 @@ const appRoutes: Routes= [
   ],
   imports: [
     BrowserModule,
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

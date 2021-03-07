@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelListComponent implements OnInit {
 
-  hotels = ["Plateau", "Wolf", "Verdun"];
+  hotels = ["plateau", "wolf", "verdun"];
 
   constructor() {
 
